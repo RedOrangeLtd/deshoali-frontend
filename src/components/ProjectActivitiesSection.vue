@@ -103,23 +103,12 @@
                         height="300"
                         cover
                         class="align-end"
-                        :gradient="isHovering ? 'to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%' : ''"
                       >
                         <template v-slot:placeholder>
                           <div class="d-flex align-center justify-center fill-height bg-grey-lighten-4">
                             <v-progress-circular indeterminate color="primary"></v-progress-circular>
                           </div>
                         </template>
-                        <v-fade-transition>
-                          <div
-                            v-if="isHovering"
-                            class="d-flex fill-height align-center justify-center card-overlay"
-                          >
-                            <v-btn icon color="white" variant="text">
-                              <v-icon size="32">mdi-magnify-plus-outline</v-icon>
-                            </v-btn>
-                          </div>
-                        </v-fade-transition>
                       </v-img>
                     </v-card>
                   </v-hover>
@@ -661,11 +650,6 @@ export default {
 
 .gallery-card:hover {
   transform: scale(1.02);
-}
-
-.card-overlay {
-  background: rgba(77, 135, 15, 0.2);
-  backdrop-filter: blur(2px);
 }
 
 /* Animation utilities */
