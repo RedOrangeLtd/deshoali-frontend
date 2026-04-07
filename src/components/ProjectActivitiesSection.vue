@@ -80,6 +80,52 @@
 
           <v-card-text class="modal-body py-10 px-10">
             <div class="activity-full-content" v-html="selectedActivity.fullContent"></div>
+
+            <!-- Activity Gallery -->
+            <div v-if="selectedActivity.images && selectedActivity.images.length > 0" class="mt-12">
+              <h3 class="gallery-title mb-8">Activity Gallery</h3>
+              <v-row>
+                <v-col 
+                  v-for="(img, idx) in selectedActivity.images" 
+                  :key="idx"
+                  cols="12" 
+                  sm="6"
+                >
+                  <v-hover v-slot="{ isHovering, props }">
+                    <v-card
+                      v-bind="props"
+                      :elevation="isHovering ? 12 : 2"
+                      class="gallery-card overflow-hidden"
+                      rounded="xl"
+                    >
+                      <v-img
+                        :src="img"
+                        height="300"
+                        cover
+                        class="align-end"
+                        :gradient="isHovering ? 'to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%' : ''"
+                      >
+                        <template v-slot:placeholder>
+                          <div class="d-flex align-center justify-center fill-height bg-grey-lighten-4">
+                            <v-progress-circular indeterminate color="primary"></v-progress-circular>
+                          </div>
+                        </template>
+                        <v-fade-transition>
+                          <div
+                            v-if="isHovering"
+                            class="d-flex fill-height align-center justify-center card-overlay"
+                          >
+                            <v-btn icon color="white" variant="text">
+                              <v-icon size="32">mdi-magnify-plus-outline</v-icon>
+                            </v-btn>
+                          </div>
+                        </v-fade-transition>
+                      </v-img>
+                    </v-card>
+                  </v-hover>
+                </v-col>
+              </v-row>
+            </div>
           </v-card-text>
 
           <v-divider></v-divider>
@@ -137,6 +183,12 @@ export default {
           summary: "Conducted to assess knowledge, attitudes, and barriers related to SRHR among tea garden workers.",
           icon: "mdi-chart-box-outline",
           color: "card-blue",
+          images: [
+            '/baseline/baseline_1.png',
+            '/baseline/baseline_2.png',
+            '/baseline/baseline_3.png',
+            '/baseline/baseline_4.png'
+          ],
           fullContent: `
             <h3>Focus Areas</h3>
             <p>A baseline survey was conducted to assess knowledge, attitudes, practices, and barriers related to SRHR among tea garden workers. The findings guided intervention development.</p>
@@ -225,6 +277,10 @@ export default {
           summary: "Preloaded tablets provided to households without smartphones to ensure fair information access.",
           icon: "mdi-tablet-android",
           color: "card-purple",
+          images: [
+            '/tablet_distribution/tablet_distribution_1.png',
+            '/tablet_distribution/tablet_distribution_2.png'
+          ],
           fullContent: `
             <h3>Objective</h3>
             <p>To ensure fair access to SRHR information, participants without smartphones were given tablets preloaded with the Talk-Book app.</p>
@@ -294,6 +350,10 @@ export default {
           summary: "Weekly participatory learning sessions engaging 20-25 tea workers per meeting.",
           icon: "mdi-account-group-outline",
           color: "card-light-green",
+          images: [
+            '/cym/cym_1.png',
+            '/cym/cym_2.png'
+          ],
           fullContent: `
             <h3>Activity Description</h3>
             <p>18 weekly community yard meetings conducted to date, providing participatory learning and SRHR awareness.</p>
@@ -314,6 +374,10 @@ export default {
           summary: "Culturally appropriate informational brochures disseminated to at least one copy per household.",
           icon: "mdi-file-document-multiple-outline",
           color: "card-pink",
+          images: [
+            '/brochure/brochure_1.png',
+            '/brochure/brochure_2.png'
+          ],
           fullContent: `
             <h3>Objective</h3>
             <p>As part of the project’s community engagement strategy, informational brochures were developed to disseminate key SRHR messages.</p>
@@ -570,6 +634,38 @@ export default {
   text-transform: none;
   letter-spacing: 0.5px;
   height: 48px !important;
+}
+
+/* Gallery Styling */
+.gallery-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+}
+
+.gallery-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+  margin-left: 20px;
+}
+
+.gallery-card {
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  cursor: pointer;
+  border: 4px solid white;
+}
+
+.gallery-card:hover {
+  transform: scale(1.02);
+}
+
+.card-overlay {
+  background: rgba(77, 135, 15, 0.2);
+  backdrop-filter: blur(2px);
 }
 
 /* Animation utilities */
