@@ -152,9 +152,9 @@ export default {
           icon: "mdi-clipboard-check",
           color: "card-green",
           fullContent: `
-            <h3>Methods</h3>
+            <h3>Compilation</h3>
             <p>A comprehensive and verified list of tea garden workers was developed as a prerequisite for all project activities to ensure accurate population coverage and representative participant selection.</p>
-            <h3>Categorization</h3>
+            <h3>Methods</h3>
             <ul>
               <li>Worker information was initially compiled from tea garden management records and Union Parishad databases, with support from the Union Parishad Chairman.</li>
               <li>Trained community volunteers conducted household-level verification to confirm demographic details and employment status, and to resolve any discrepancies.</li>
@@ -267,7 +267,7 @@ export default {
           icon: "mdi-tablet-android",
           color: "card-purple",
           images: [
-            '/tablet_distribution/tablet_distribution_1.png',
+            '/tablet_distribution/tablet_distribution_new.jpeg',
             '/tablet_distribution/tablet_distribution_2.png'
           ],
           fullContent: `
@@ -340,8 +340,8 @@ export default {
           icon: "mdi-account-group-outline",
           color: "card-light-green",
           images: [
-            '/cym/cym_1.png',
-            '/cym/cym_2.png'
+            '/cym/cym_image_1.jpg',
+            '/cym/cym_image_2.jpg'
           ],
           fullContent: `
             <h3>Activity Description</h3>
@@ -364,8 +364,8 @@ export default {
           icon: "mdi-file-document-multiple-outline",
           color: "card-pink",
           images: [
-            '/brochure/brochure_1.png',
-            '/brochure/brochure_2.png'
+            '/brochure/brochure_1.jpeg',
+            '/brochure/brochure_2.jpeg'
           ],
           fullContent: `
             <h3>Objective</h3>
